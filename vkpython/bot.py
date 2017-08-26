@@ -12,11 +12,11 @@ server, key, ts = longPoll['server'], longPoll['key'], longPoll['ts']
 while True:
 	# Последующие запросы: меняется только ts
 	longPoll = post('https://%s'%server, data = {'act': 'a_check',
-												 'key': key,
-												 'ts': ts,
-												 'wait': 25,
-												 'mode': 2,
-												 'version': 2}).json()
+							    'key': key,
+							    'ts': ts,
+							    'wait': 25,
+							    'mode': 2,
+							    'version': 2}).json()
 
 	for update in longPoll['updates']:
 		if update[0] == 4 and update[2] != 515:
